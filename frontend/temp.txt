@@ -1,0 +1,1 @@
+All frontend-related code must be inside this directory.
