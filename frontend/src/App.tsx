@@ -1,5 +1,5 @@
 import Layout from "./pages/Layout/Layout";
-import Terminal from "./pages/Terminal/Terminal";
+import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 
 import { Routes, Route, BrowserRouter } from "react-router";
@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout/>}>
-          <Route path="/" element={<Terminal/>}/>
+          <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>
         </Route>
       </Routes>

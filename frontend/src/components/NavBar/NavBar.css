@@ -4,6 +4,10 @@
     padding: 1em 2em 1em 2em; 
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10000;
 }
 
 .navbar-title {
