@@ -1,0 +1,32 @@
+#navbar {
+    display: flex; 
+    flex-direction: row;
+    padding: 1em 2em 1em 2em; 
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.navbar-title {
+    display: flex; 
+    flex-direction: row; 
+    gap: 1em; 
+    align-items: center;
+}
+
+.navbar-tabs {
+    display: flex; 
+    flex-direction: row; 
+    gap: 4em; 
+    align-items: center;
+}
+
+.navbar-tabs > a {
+    color: black;
+    text-decoration: none;
+}
+ 
+.navbar-tabs > .active {
+    font-weight: bold;
+}
+
+
