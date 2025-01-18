@@ -1,0 +1,9 @@
+.about-page {
+    background: radial-gradient(circle at 3% 25%, rgba(0, 10, 21, 1) 0%, rgba(1, 3, 6, 1) 100%);
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+}
