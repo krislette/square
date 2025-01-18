@@ -16,7 +16,7 @@ export default function About() {
                 </div>
 
                 <div className="square__header-image">
-                    // ! Put image here 
+                     {/* ! Put image here  */}
                     <img src="path_to_your_image.jpg" alt="Square Programming" />
                 </div>
             </div>
