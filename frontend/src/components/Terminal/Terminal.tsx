@@ -1,7 +1,7 @@
 import "./Terminal.css"
 
 import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-javascript";
+import "./mode-square";
 import "ace-builds/src-noconflict/theme-xcode"; 
 import "ace-builds/src-noconflict/theme-clouds_midnight"; 
 import "ace-builds/src-noconflict/theme-github"; 
@@ -15,7 +15,7 @@ import { useState } from "react";
 
 export default function Terminal(){
     const [theme, setTheme] = useState<string>("clouds_midnight"); 
-    const [input, setInput] = useState<string>(`// type your code here!
+    const [input, setInput] = useState<string>(`# type your code here!
 my_var: string = "hello world!"`)
 
     const handleChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>): void => {
@@ -73,7 +73,7 @@ my_var: string = "hello world!"`)
 
         
             <AceEditor
-                mode="javascript"
+                mode="typescript"
                 theme= {theme}
                 name="editor"
                 editorProps={{ $blockScrolling: true }}
