@@ -1,50 +1,137 @@
 import './About.css';
+import ExpandableCard from "../../components/Card/Card"
+
+const cards = [
+    {
+      title: "Lead Developer",
+      description: "Acelle Krislette Rosales",
+      src: "acelle.jpg",
+      ctaText: "Visit Github",
+      ctaLink: "https://github.com/krislette",
+      content: (
+        <p>
+          Oh loko anong balita ba't mainit
+          Heto ako at sumesexy nag-iinit
+          Umaapoy lumalagkit ang mga titig
+          Hot mommy'ng malupit sumasarap 'pag may dumidilig
+        </p>
+      ),
+    },
+    {
+      title: "Lead Developer",
+      description: "Acelle Krislette Rosales",
+      src: "acelle.jpg",
+      ctaText: "Visit Github",
+      ctaLink: "https://github.com/krislette",
+      content: (
+        <p>
+          Oh loko anong balita ba't mainit
+          Heto ako at sumesexy nag-iinit
+          Umaapoy lumalagkit ang mga titig
+          Hot mommy'ng malupit sumasarap 'pag may dumidilig
+        </p>
+      ),
+    },
+    {
+      title: "Lead Developer",
+      description: "Acelle Krislette Rosales",
+      src: "acelle.jpg",
+      ctaText: "Visit Github",
+      ctaLink: "https://github.com/krislette",
+      content: (
+        <p>
+          Oh loko anong balita ba't mainit
+          Heto ako at sumesexy nag-iinit
+          Umaapoy lumalagkit ang mga titig
+          Hot mommy'ng malupit sumasarap 'pag may dumidilig
+        </p>
+      ),
+    },
+    {
+      title: "Lead Developer",
+      description: "Acelle Krislette Rosales",
+      src: "acelle.jpg",
+      ctaText: "Visit Github",
+      ctaLink: "https://github.com/krislette",
+      content: (
+        <p>
+          Oh loko anong balita ba't mainit
+          Heto ako at sumesexy nag-iinit
+          Umaapoy lumalagkit ang mga titig
+          Hot mommy'ng malupit sumasarap 'pag may dumidilig
+        </p>
+      ),
+    },
+    {
+      title: "Lead Developer",
+      description: "Acelle Krislette Rosales",
+      src: "acelle.jpg",
+      ctaText: "Visit Github",
+      ctaLink: "https://github.com/krislette",
+      content: (
+        <p>
+          Oh loko anong balita ba't mainit
+          Heto ako at sumesexy nag-iinit
+          Umaapoy lumalagkit ang mga titig
+          Hot mommy'ng malupit sumasarap 'pag may dumidilig
+        </p>
+      ),
+    },
+    {
+      title: "Lead Developer",
+      description: "Acelle Krislette Rosales",
+      src: "acelle.jpg",
+      ctaText: "Visit Github",
+      ctaLink: "https://github.com/krislette",
+      content: (
+        <p>
+          Oh loko anong balita ba't mainit
+          Heto ako at sumesexy nag-iinit
+          Umaapoy lumalagkit ang mga titig
+          Hot mommy'ng malupit sumasarap 'pag may dumidilig
+        </p>
+      ),
+    },
+    {
+      title: "Lead Developer",
+      description: "Acelle Krislette Rosales",
+      src: "acelle.jpg",
+      ctaText: "Visit Github",
+      ctaLink: "https://github.com/krislette",
+      content: (
+        <p>
+          Oh loko anong balita ba't mainit
+          Heto ako at sumesexy nag-iinit
+          Umaapoy lumalagkit ang mga titig
+          Hot mommy'ng malupit sumasarap 'pag may dumidilig
+        </p>
+      ),
+    },
+    {
+      title: "Lead Developer",
+      description: "Acelle Krislette Rosales",
+      src: "acelle.jpg",
+      ctaText: "Visit Github",
+      ctaLink: "https://github.com/krislette",
+      content: (
+        <p>
+          Oh loko anong balita ba't mainit
+          Heto ako at sumesexy nag-iinit
+          Umaapoy lumalagkit ang mga titig
+          Hot mommy'ng malupit sumasarap 'pag may dumidilig
+        </p>
+      ),
+    },
+    // Add more card objects as needed
+  ];
 
 export default function About() {
     return (
         <div className="about-page">
-            <div className="square__header section__padding" id="about">
-                <div className="square__header-content">
-                    <h1 className="gradient__text">
-                        Revolutionize Your Development Process with Square
-                    </h1>
-                    <p>
-                        Square is a programming language designed with beginners in mind, particularly targeting
-                        high school students, computer science and IT students especially freshmen, and career shifters
-                        who are new to coding.
-                    </p>
-                    <a 
-                        href="https://drive.google.com/paper-link" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="custom__button">
-                        <span className="button__background"></span>
-                        <div className="button__content">
-                            <span>View Our Paper</span>
-                            <svg
-                                fill="none"
-                                height="16"
-                                viewBox="0 0 24 24"
-                                width="16"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M10.75 8.75L14.25 12L10.75 15.25"
-                                    stroke="currentColor"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="1.5"
-                                />
-                            </svg>
-                        </div>
-                    </a>
-
-                </div>
-
-                <div className="square__header-image">
-                    {/* ! Put image here  */}
-                    <img src="sqr-logo.png" alt="Square Programming" />
-                </div>
+            {/* Add the ExpandableCard here */}
+            <div className="expandable__card-section">
+                <h2>About Developers</h2>
+                <ExpandableCard cards={cards} />
             </div>
         </div>
     );
