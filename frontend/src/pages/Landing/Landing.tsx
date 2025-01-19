@@ -20,7 +20,8 @@ function LandingPage() {
               style={{ textDecoration: "none", color: "inherit" }} 
               className="custom__button"
             >
-              <span className="button__background"></span>
+            <div className="custom__button">              
+            <span className="button__background"></span>
               <div className="button__content">
                 <span>Go to Terminal</span>
                 <svg
@@ -39,6 +40,7 @@ function LandingPage() {
                   />
                 </svg>
               </div>
+            </div>
             </Link>
 
             <a 
