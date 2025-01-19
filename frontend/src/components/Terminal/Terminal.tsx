@@ -13,7 +13,11 @@ import { MdOutlineUploadFile } from "react-icons/md";
 
 import { useState } from "react";
 
-export default function Terminal(){
+interface TerminalProps {
+    getLexemes: (input: string) => void;
+}
+
+export default function Terminal({getLexemes}: TerminalProps){
     const [theme, setTheme] = useState<string>("clouds_midnight"); 
     const [input, setInput] = useState<string>(`# type your code here!
 my_var: string = "hello world!"`)
@@ -27,7 +31,7 @@ my_var: string = "hello world!"`)
     }
 
     const handleGenerate = (): void => {
-        console.log(input); 
+        getLexemes(input); 
     }
 
     const handleUpload = (event: React.ChangeEvent<HTMLInputElement>): void => {
