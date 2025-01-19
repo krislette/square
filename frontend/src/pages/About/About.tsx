@@ -13,11 +13,37 @@ export default function About() {
                         high school students, computer science and IT students especially freshmen, and career shifters
                         who are new to coding.
                     </p>
+                    <a 
+                        href="https://drive.google.com/paper-link" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="custom__button">
+                        <span className="button__background"></span>
+                        <div className="button__content">
+                            <span>View Our Paper</span>
+                            <svg
+                                fill="none"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                width="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M10.75 8.75L14.25 12L10.75 15.25"
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="1.5"
+                                />
+                            </svg>
+                        </div>
+                    </a>
+
                 </div>
 
                 <div className="square__header-image">
-                     {/* ! Put image here  */}
-                    <img src="path_to_your_image.jpg" alt="Square Programming" />
+                    {/* ! Put image here  */}
+                    <img src="sqr-logo.png" alt="Square Programming" />
                 </div>
             </div>
         </div>
