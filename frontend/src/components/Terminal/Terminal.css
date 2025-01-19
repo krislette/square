@@ -1,7 +1,91 @@
+#terminal {
+    padding: 2em;
+    width: 60%;
+}
+
 input[type="file"] {
     display: none;
 }
 
-.terminal-upload {
+.terminal-upload,
+.terminal-theme-dropdown, 
+.terminal-generate-btn {
     cursor: pointer;
+}
+
+#terminal button {
+    font-size: 1em;
+}
+
+.terminal-btns-container {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.terminal-generate-btn {
+    border-radius: 4px;
+    border: solid 2px rgba(255, 255, 255, 0.16);
+    padding: 0.5em;
+}
+
+.terminal-generate-btn > p {
+    background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.terminal-generate-btn:hover {
+    background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    box-shadow: #ae67fa65  0px 5px 15px 0px;
+}
+
+.terminal-generate-btn:hover > p {
+    background: none;
+    -webkit-text-fill-color: white;
+    color: white; /
+}
+
+.terminal-btns-misc {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    height: fit-content;
+    gap: 1em;
+}
+
+.terminal-btns-theme {
+    display: flex; 
+    align-items: center;
+    gap: 1em;
+}
+
+.terminal-btns-theme > p {
+    color: white;
+    font-size: small;
+}
+
+.terminal-theme-dropdown {
+    font-size: 1em; 
+    padding: 0.5em;
+    background: transparent;
+    color: white;
+    border-radius: 4px;
+    border: solid 2px rgba(255, 255, 255, 0.16);
+}
+
+.terminal-btns-upload {
+    height: 39px;
+    border-radius: 4px;
+    border: solid 2px rgba(255, 255, 255, 0.16);
+    display: flex;
+    align-items: center;
+}
+
+.terminal-upload {
+    height: 25px;
 }
