@@ -30,6 +30,18 @@ my_var: string = "hello world!"`)
         console.log(input); 
     }
 
+    const handleUpload = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        const file = event.target.files?.[0];
+        if(file) {
+            const reader = new FileReader(); 
+            reader.onload = (e) => {
+                const text = e.target?.result as string; 
+                setInput(text)
+            }; 
+            reader.readAsText(file);
+        }; 
+    }
+
     return(
         <div id="terminal">
             <div className="terminal-btns-container">
@@ -53,7 +65,7 @@ my_var: string = "hello world!"`)
                         <label htmlFor="file-upload" className="terminal-upload">
                             <MdOutlineUploadFile size={25} color="white"/>
                         </label>
-                        <input id="file-upload" type="file" accept=".sqr"/>
+                        <input id="file-upload" type="file" accept=".sqr" onChange={handleUpload}/>
                     </button>
                 </div>
                 <button className="terminal-generate-btn" onClick={handleGenerate}><p>Generate Lexemes</p></button>
