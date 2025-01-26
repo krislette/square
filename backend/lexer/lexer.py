@@ -169,8 +169,8 @@ class Lexer:
                 number += char
         
         # State: Floating-point part
-        # Check if the next character is a decimal point followed by digits
-        if self._peek() == '.' and self.current_pos + 1 < len(self.source) and self.source[self.current_pos + 1].isdigit():
+        # Check if the current character is a decimal point followed by digits
+        if self.source[self.current_pos] == '.' and self.current_pos + 1 < len(self.source) and self.source[self.current_pos + 1].isdigit():
             # Consume the decimal point
             number += self._advance()
             # Consume the fractional digits.
