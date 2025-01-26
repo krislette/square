@@ -1,4 +1,4 @@
 from .constants import KEYWORDS, OPERATORS, DELIMITERS
-from .helpers import CharacterClassifier
+from .states import State
 
-__all__ = ["KEYWORDS", "OPERATORS", "DELIMITERS", "CharacterClassifier"]
+__all__ = ["KEYWORDS", "OPERATORS", "DELIMITERS", "State"]
