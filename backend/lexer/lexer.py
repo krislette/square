@@ -3,6 +3,7 @@ from backend.lexer.errors import LexicalError
 from backend.core.constants import KEYWORDS, OPERATORS, DELIMITERS
 from typing import List, Optional
 
+
 class Lexer:
     """
     Note: This class imitates an automaton by moving
