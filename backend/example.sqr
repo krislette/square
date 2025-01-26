@@ -1,0 +1,12 @@
+string_literal: str = "This is a string literal.".
+counter: int = 18.
+flag: bool.
+
+when flag [
+    true :: print("Condition is TRUE").
+    false :: print("Condition is FALSE").
+]
+
+loop i: int in range(0, 10, i++) [
+    print(i).
+]
