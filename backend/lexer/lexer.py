@@ -54,25 +54,6 @@ class Lexer:
 
         return char
 
-    def _match(self, expected: str) -> bool:
-        """Check if the next character matches the expected character.
-        
-        If it matches, the lexer advances to the next state by consuming the character.
-        
-        Args:
-            expected (str): The character to match.
-        
-        Returns:
-            bool: True if the next character matches, False otherwise.
-        """
-        if self.current_pos >= len(self.source):
-            return False
-        if self.source[self.current_pos] != expected:
-            return False
-        self._advance()
-
-        return True
-
     def tokenize(self) -> List[Token]:
         """Tokenize the entire source code.
 
