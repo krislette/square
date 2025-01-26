@@ -1,6 +1,7 @@
 from backend.lexer.tokens import Token, TokenType
 from backend.lexer.errors import LexicalError
 from backend.core.constants import KEYWORDS, OPERATORS, DELIMITERS
+from backend.core.states import State
 from typing import List, Optional
 
 
@@ -15,6 +16,19 @@ class Lexer:
         self.line: int = 1
         self.column: int = 1
         self.current_pos: int = 0
+        self.current_state: State = State.START
+
+        # Maps states to their transition
+        self.transition_table = {
+            State.START: {
+                'operator': lambda char: char in '+-*/<>=!|',
+                'number': lambda char: char.isdigit(),
+                'identifier': lambda char: char.isalpha() or char == '_',
+                'string': lambda char: char == '"',
+                'delimiter': lambda char: char in '()[].:,',
+                'whitespace': lambda char: char.isspace(),
+            }
+        }
 
     def _peek(self, offset: int = 1) -> str:
         """Look ahead in the source code without consuming characters.
@@ -66,39 +80,44 @@ class Lexer:
         while self.current_pos < len(self.source):
             current: str = self.source[self.current_pos]
 
-            # State: Operator
-            # Transition to operator tokenization if the current character is a potential operator
-            if current in '+-*/<>=!|':
-                self._tokenize_operator()
-
-            # State: Number
-            # Transition to number tokenization if the current character is a digit
-            elif current.isdigit():
-                self._tokenize_number()
-
-            # State: Identifier or Keyword
-            # Transition to identifier tokenization if the current character is a letter or underscore
-            elif current.isalpha() or current == '_':
-                self._tokenize_identifier()
-            
-            # State: Whitespace
-            # Transition to the next character if the current character is whitespace
-            elif current.isspace():
-                self._advance()
-
-            # State: String Literal
-            elif current == '"':
-                self._tokenize_string()
-
-            # State: Delimiter
-            # Transition to delimiter tokenization if the current character is a delimiter
-            elif current in '()[].:,':
-                self._tokenize_delimiter()
-
-            else:
+            if self.current_state == State.START:
+                # State: Operator
+                # Transition to operator tokenization if the current character is a potential operator
+                if self.transition_table[State.START]['operator'](current):
+                    self._tokenize_operator()
+                
+                # State: Number
+                # Transition to number tokenization if the current character is a digit
+                elif self.transition_table[State.START]['number'](current):
+                    self._tokenize_number()
+                
+                # State: Identifier or Keyword
+                # Transition to identifier tokenization if the current character is a letter or underscore
+                elif self.transition_table[State.START]['identifier'](current):
+                    self._tokenize_identifier()
+                
+                # State: String Literal
+                # Transition to str literal tokenization
+                elif self.transition_table[State.START]['string'](current):
+                    self._tokenize_string()
+                
+                # State: Delimiter
+                # Transition to delimiter tokenization if the current character is a delimiter
+                elif self.transition_table[State.START]['delimiter'](current):
+                    self._tokenize_delimiter()
+                
+                # State: Whitespace
+                # Transition to the next character if the current character is whitespace
+                elif self.transition_table[State.START]['whitespace'](current):
+                    self._advance()  # Skip whitespace
+                
                 # State: Error
                 # If no valid transition is found, raise a lexical error
-                raise LexicalError(current, self.line, self.column)
+                else:
+                    raise LexicalError(current, self.line, self.column)
+
+            # Reset to start state after processing
+            self.current_state = State.START
 
         return self.tokens
 
