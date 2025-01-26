@@ -10,3 +10,7 @@ when flag [
 loop i: int in range(0, 10, i++) [
     print(i).
 ]
+
+when x [
+    == 12 | 13 | 0 :: print("Valid value")
+]

@@ -87,7 +87,7 @@ class Lexer:
 
             # State: Operator
             # Transition to operator tokenization if the current character is a potential operator
-            if current in '+-*/<>=!':
+            if current in '+-*/<>=!|':
                 self._tokenize_operator()
 
             # State: Number
