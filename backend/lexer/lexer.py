@@ -327,7 +327,6 @@ class Lexer:
 
                 # Closing pounds ends the comment
                 if current == '#' and self.source[self.current_pos] == '#':
-                    print(f"current: {current} and the next: {self.source[self.current_pos]}")
                     self._advance()   # consume first pound
                     self._advance()   # consume second pound
                     comment_value.append('##')   # append two pounds to the end of curr string
