@@ -23,22 +23,22 @@ def print_tokens(tokens: List[Token]) -> None:
         return
 
     # Define column widths
-    type_width = 30
+    type_width = 35
     lexeme_width = 60
     location_width = 20
 
     # Print header
     print("Tokens:")
-    print("-" * 100)
+    print("-" * 120)
     print(f"{'Type'.ljust(type_width)} {'Lexeme'.ljust(lexeme_width)} {'Location'.ljust(location_width)}")
-    print("-" * 100)
+    print("-" * 120)
 
     # Print each token
     for token in tokens:
         location = f"Line: {token.line}, Column: {token.column}"
         print(f"{token.token_type.name.ljust(type_width)} {token.lexeme.ljust(lexeme_width)} {location.ljust(location_width)}")
 
-    print("-" * 100)
+    print("-" * 120)
 
 
 def main() -> NoReturn:

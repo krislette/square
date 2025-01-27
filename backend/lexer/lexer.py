@@ -21,7 +21,7 @@ class Lexer:
         # Maps states to their transition
         self.transition_table = {
             State.START: {
-                'operator': lambda char: char in '+-*/<>=!|%~&',
+                'operator': lambda char: char in '+-*/<>=!|%~&.',
                 'number': lambda char: char.isdigit(),
                 'identifier': lambda char: char.isalpha() or char == '_',
                 'string': lambda char: char == '"',
@@ -117,7 +117,6 @@ class Lexer:
                 elif self.transition_table[State.START]['whitespace'](current):
                     self._advance()  # Skip whitespace
 
-                
                 # State: Error
                 # If no valid transition is found, raise a lexical error
                 else:
@@ -140,6 +139,23 @@ class Lexer:
         # Peek at the current and next character without advancing
         current: str = self.source[self.current_pos]
         next_char: str = self._peek()
+
+        # Handle the dot operator separately
+        if current == '.':
+            # Check if the dot is surrounded by valid identifier characters
+            prev_char = self.source[self.current_pos - 1] if self.current_pos > 0 else ''
+            next_char = self._peek()
+
+            # Case 1: Dot is used for attribute access (e.g., `var.name` or `var.[name, age]`)
+            if (prev_char.isalnum() or prev_char == '_') and (next_char.isalnum() or next_char == '_' or next_char == '['):
+                # This is an attribute access operator
+                self._advance()
+                self.tokens.append(Token(TokenType.ATTRIBUTE_ACCESS_TOKEN, '.', line, column))
+                return
+            else:
+                # Case 2: Dot is a delimiter (e.g., `[19, "3-1N"].`)
+                self._tokenize_delimiter()
+                return
 
         # Check if the current and next characters form a valid multi-character operator
         if current + next_char in OPERATORS:
@@ -259,18 +275,18 @@ class Lexer:
         current: str = self.source[self.current_pos]
         next_char: str = self._peek()
 
-        if current == ':' and next_char == ':':
-            # Found a scope resolution token '::'
-            self._advance()  # Consume the first ':'
-            self._advance()  # Consume the second ':'
-            self.tokens.append(Token(TokenType.SCOPE_RESOLUTION_TOKEN, '::', line, column))
-            return
-
         if current == ':':
-            # Single ':' token
-            self._advance()  # Consume the ':'
-            self.tokens.append(Token(TokenType.DATA_TYPE_ASSIGNMENT_TOKEN, ':', line, column))
-            return
+            if next_char == ':':
+                # Found a scope resolution token '::'
+                self._advance()  # Consume the first ':'
+                self._advance()  # Consume the second ':'
+                self.tokens.append(Token(TokenType.SCOPE_RESOLUTION_TOKEN, '::', line, column))
+                return
+            else:
+                # Single ':' token
+                self._advance()  # Consume the ':'
+                self.tokens.append(Token(TokenType.DATA_TYPE_ASSIGNMENT_TOKEN, ':', line, column))
+                return
 
         # Handle other delimiters if necessary
         if current in DELIMITERS:
