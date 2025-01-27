@@ -61,6 +61,12 @@ OPERATORS: dict[str, TokenType] = {
     "**": TokenType.OP_EXPONENT_TOKEN,
     "~/": TokenType.OP_INT_DIVIDE_TOKEN,
 
+    # Attribute Access Operator
+    ".": TokenType.ATTRIBUTE_ACCESS_TOKEN,
+
+    # Function Type Assignment Operator
+    "->": TokenType.FUNCTION_TYPE_ASSIGNMENT_TOKEN,
+
     # Increment/Decrement
     "++": TokenType.OP_INCREMENT_TOKEN,
     "--": TokenType.OP_DECREMENT_TOKEN,
