@@ -1,5 +1,7 @@
-
-# Sample model (struct) in Square declared globally
+##
+This is a multiline comment
+and below is a model.
+##
 mod student [
     id: str.
     name: str.
@@ -10,12 +12,18 @@ mod student [
 
 
 # Batch update feature for the model
-fun demo_three() -> void [
+fun demo_four() -> void [
     # Initializing a variable of type `student` (from model)
     rosales: student = ["2022", "acelle", 18, "3-5", 1.00].
 
-    # Batch updating some variables on variable `rosales`
+    # Batch updating some variables on studet `rosales`
     rosales.[age, block] = [19, "3-1N"].
+]
+
+
+# Function to demonstrate different operators
+fun demo_three() -> void [
+    return (5.0 - 1.0 * (8.0 / 4.0)) > 10.0 % 3.0 ** 6.0.
 ]
 
 
@@ -23,13 +31,13 @@ fun demo_three() -> void [
 fun demo_two() -> void [
     loop i: int in range(0, 20, i++) [
         when [
-            i % 3 == 0 && i % 5 == 0 [
+            i % 3 == 0 && i % 5 == 0 :: [
                 print("FizzBuzz").
             ]
-            i % 3 == 0 [
+            i % 3 == 0 :: [
                 print("Fizz").
             ]
-            i % 5 == 0 [
+            i % 5 == 0 :: [
                 print("Buzz")
             ]
         ]
@@ -59,10 +67,9 @@ fun main() -> void [
     # Function call for conditional demo
     demo_two().
 
-    # Function call for model demo
+    # Function call for operator demo
     demo_three().
-] 
 
-##
-Example of a multi-line comment.
-##
+    # Function call for model demo
+    demo_four().
+] 
