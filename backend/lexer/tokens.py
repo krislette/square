@@ -8,8 +8,6 @@ class TokenType(Enum):
 
     # Literals
     STRING_LITERAL_TOKEN = auto()
-    SINGLE_COMMENT_TOKEN = auto()
-    MULTI_COMMENT_TOKEN = auto()
     INT_LITERAL_TOKEN = auto()
     FLOAT_LITERAL_TOKEN = auto()
 
@@ -85,6 +83,10 @@ class TokenType(Enum):
     CLOSE_SQUARE_TOKEN = auto()
     OPEN_PARENTHESIS_TOKEN = auto()
     CLOSE_PARENTHESIS_TOKEN = auto()
+
+    # Comments
+    SINGLE_COMMENT_TOKEN = auto()
+    MULTI_COMMENT_TOKEN = auto()
 
     # Miscellaneous
     SCOPE_RESOLUTION_TOKEN = auto()
