@@ -21,7 +21,7 @@ class Lexer:
         # Maps states to their transition
         self.transition_table = {
             State.START: {
-                'operator': lambda char: char in '+-*/<>=!|',
+                'operator': lambda char: char in '+-*/<>=!|%~&',
                 'number': lambda char: char.isdigit(),
                 'identifier': lambda char: char.isalpha() or char == '_',
                 'string': lambda char: char == '"',

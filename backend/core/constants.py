@@ -58,6 +58,7 @@ OPERATORS: dict[str, TokenType] = {
     "%": TokenType.OP_MODULO_TOKEN,
     "//": TokenType.OP_INT_DIVIDE_TOKEN,
     "**": TokenType.OP_EXPONENT_TOKEN,
+    "~/": TokenType.OP_INT_DIVIDE_TOKEN,
 
     # Increment/Decrement
     "++": TokenType.OP_INCREMENT_TOKEN,
