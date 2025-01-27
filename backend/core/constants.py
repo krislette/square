@@ -30,6 +30,7 @@ KEYWORDS: dict[str, TokenType] = {
     # Function Keywords
     "print": TokenType.KW_PRINT_TOKEN,
     "range": TokenType.KW_RANGE_TOKEN,
+    "fun": TokenType.FUNCTION_TOKEN,
 
     # Reserved Words
     "true": TokenType.RW_BOOL_TRUE_TOKEN,
