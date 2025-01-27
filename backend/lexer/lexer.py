@@ -27,6 +27,7 @@ class Lexer:
                 'string': lambda char: char == '"',
                 'delimiter': lambda char: char in '()[].:,',
                 'whitespace': lambda char: char.isspace(),
+                'comment': lambda char: char  == '#'
             }
         }
 
@@ -106,10 +107,16 @@ class Lexer:
                 elif self.transition_table[State.START]['delimiter'](current):
                     self._tokenize_delimiter()
                 
+                # State: Comment
+                # Transition to comment tokenization if the current character is a pound
+                elif self.transition_table[State.START]['comment'](current):
+                    self._tokenize_comment()
+                
                 # State: Whitespace
                 # Transition to the next character if the current character is whitespace
                 elif self.transition_table[State.START]['whitespace'](current):
                     self._advance()  # Skip whitespace
+
                 
                 # State: Error
                 # If no valid transition is found, raise a lexical error
@@ -273,3 +280,78 @@ class Lexer:
 
         # Unrecognized delimiter error
         raise ValueError(f"Unrecognized delimiter: {current}")
+
+    def _tokenize_comment(self) -> None:
+        """Tokenize comments.
+
+        This method handles the state transitions for comments, which can be single-line
+        or multi-line.
+        """
+        line: int = self.line
+        column: int = self.column
+
+        # Peek at the current and next character without advancing
+        current: str = self.source[self.current_pos]
+        next_char: str = self._peek()
+
+        if current == '#' and next_char == '#':
+            # Found a multiline comment
+            self._advance()  # Consume the first '#'
+            self._advance()  # Consume the second '#'
+
+            comment_value = []
+            comment_value.append('##')   # Add the two parsed pounds
+
+            while True:
+                current: Optional[str] = self._advance()
+
+                # End of file before closing the multiline comment
+                if current is None:
+                    raise ValueError("Unterminated multiline comment.")
+
+                # Closing pounds ends the comment
+                if current == '#' and self.source[self.current_pos] == '#':
+                    print(f"current: {current} and the next: {self.source[self.current_pos]}")
+                    self._advance()   # consume first pound
+                    self._advance()   # consume second pound
+                    comment_value.append('##')   # append two pounds to the end of curr string
+                    break
+
+                else:
+                    # Regular character
+                    if current == '\n':
+                        comment_value.append(' ')
+                    else:
+                        comment_value.append(current)
+
+            # Combine characters into a full string
+            full_string = ''.join(comment_value)
+
+            # Add token with the comment token
+            self.tokens.append(Token(TokenType.MULTI_COMMENT_TOKEN, full_string, line, column))
+            return
+
+        if current == '#':
+            comment_value = []
+            while True:
+                current: Optional[str] = self._advance()
+
+                # exits when end of file
+                if current is None:
+                    break
+
+                # Newline ends the comment
+                if current == '\n':
+                    break
+
+                else:
+                    # Regular character
+                    comment_value.append(current)
+
+            # Combine characters into a full string
+            full_string = ''.join(comment_value)
+
+            # Add token with the comment token type
+            self.tokens.append(Token(TokenType.SINGLE_COMMENT_TOKEN, full_string, line, column))
+
+            return

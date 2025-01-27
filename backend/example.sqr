@@ -1,3 +1,4 @@
+
 # Sample model (struct) in Square declared globally
 mod student [
     id: str.
@@ -61,3 +62,7 @@ fun main() -> void [
     # Function call for model demo
     demo_three().
 ] 
+
+##
+Example of a multi-line comment.
+##
