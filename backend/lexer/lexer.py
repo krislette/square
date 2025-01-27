@@ -327,7 +327,7 @@ class Lexer:
             full_string = ''.join(comment_value)
 
             # Add token with the comment token
-            self.tokens.append(Token(TokenType.COMMENT_TOKEN, full_string, self.line, self.column))
+            self.tokens.append(Token(TokenType.COMMENT_TOKEN, full_string, line, column))
             return
 
         if current == '#':

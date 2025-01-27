@@ -1,5 +1,5 @@
 
-#    Sample model (struct) in Square declared globally
+# Sample model (struct) in Square declared globally
 mod student [
     id: str.
     name: str.
