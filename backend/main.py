@@ -24,7 +24,7 @@ def print_tokens(tokens: List[Token]) -> None:
 
     # Define column widths
     type_width = 30
-    lexeme_width = 40
+    lexeme_width = 60
     location_width = 20
 
     # Print header
