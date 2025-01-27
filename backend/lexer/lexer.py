@@ -298,9 +298,10 @@ class Lexer:
             # Found a multiline comment
             self._advance()  # Consume the first '#'
             self._advance()  # Consume the second '#'
-            self.tokens.append(Token(TokenType.MULTI_COMMENT_TOKEN, '##', line, column))
 
             comment_value = []
+            comment_value.append('##')   # Add the two parsed pounds
+
             while True:
                 current: Optional[str] = self._advance()
 
@@ -327,18 +328,9 @@ class Lexer:
 
             # Add token with the comment token
             self.tokens.append(Token(TokenType.COMMENT_TOKEN, full_string, self.line, self.column))
-            self.tokens.append(Token(TokenType.MULTI_COMMENT_TOKEN, '##', self.line, self.column))
             return
 
         if current == '#':
-            # Single '#' token
-            self._advance()  # Consume the '#'
-            self.tokens.append(Token(TokenType.SINGLE_COMMENT_TOKEN, '#', line, column))
-
-            # Skips all the whitespaces from the right of the pound, up to the comment
-            while self.source[self.current_pos] == ' ':
-                self._advance()
-
             comment_value = []
             while True:
                 current: Optional[str] = self._advance()

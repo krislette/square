@@ -94,6 +94,4 @@ DELIMITERS: dict[str, TokenType] = {
 MISCELLANEOUS: dict[str, TokenType] = {
     ".": TokenType.ATTRIBUTE_ACCESS_TOKEN,
     "->": TokenType.FUNCTION_TYPE_ASSIGNMENT_TOKEN,
-    "#": TokenType.SINGLE_COMMENT_TOKEN,
-    "##": TokenType.MULTI_COMMENT_TOKEN
 }

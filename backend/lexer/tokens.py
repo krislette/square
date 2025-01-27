@@ -90,8 +90,6 @@ class TokenType(Enum):
     ATTRIBUTE_ACCESS_TOKEN = auto()
     FUNCTION_TYPE_ASSIGNMENT_TOKEN = auto()
     DATA_TYPE_ASSIGNMENT_TOKEN = auto()
-    SINGLE_COMMENT_TOKEN = auto()
-    MULTI_COMMENT_TOKEN = auto()
 
 
 @dataclass
