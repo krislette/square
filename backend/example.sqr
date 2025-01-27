@@ -1,16 +1,63 @@
-string_literal: str = "This is a string literal.".
-counter: int = 18.
-flag: bool.
-
-when flag [
-    true :: print("Condition is TRUE").
-    false :: print("Condition is FALSE").
+# Sample model (struct) in Square declared globally
+mod student [
+    id: str.
+    name: str.
+    age: int.
+    block: str.
+    gpa: float.
 ]
 
-loop i: int in range(0, 10, i++) [
-    print(i).
+
+# Batch update feature for the model
+fun demo_three() -> void [
+    # Initializing a variable of type `student` (from model)
+    rosales: student = ["2022", "acelle", 18, "3-5", 1.00].
+
+    # Batch updating some variables on variable `rosales`
+    rosales.[age, block] = [19, "3-1N"].
 ]
 
-when x [
-    == 12 | 13 | 0 :: print("Valid value")
+
+# FizzBuzz implementation in Square
+fun demo_two() -> void [
+    loop i: int in range(0, 20, i++) [
+        when [
+            i % 3 == 0 && i % 5 == 0 [
+                print("FizzBuzz").
+            ]
+            i % 3 == 0 [
+                print("Fizz").
+            ]
+            i % 5 == 0 [
+                print("Buzz")
+            ]
+        ]
+    ] 
 ]
+
+
+# A function to showcase a loop with a conditional
+fun demo_one() -> void [
+    counter: int = 5.
+    loop [
+        print("Hello from the square team!").
+        when counter [
+            == 5 :: exit.
+        ]
+    ]
+]
+
+
+# Main driver 
+fun main() -> void [
+    print("This is a sample program for Square.").
+
+    # Function call for loop demo
+    demo_one().
+
+    # Function call for conditional demo
+    demo_two().
+
+    # Function call for model demo
+    demo_three().
+] 
