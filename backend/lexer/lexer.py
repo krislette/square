@@ -312,8 +312,9 @@ class Lexer:
                 # Closing pounds ends the comment
                 if current == '#' and self.source[self.current_pos] == '#':
                     print(f"current: {current} and the next: {self.source[self.current_pos]}")
-                    self._advance()
-                    self._advance()
+                    self._advance()   # consume first pound
+                    self._advance()   # consume second pound
+                    comment_value.append('##')   # append two pounds to the end of curr string
                     break
 
                 else:
@@ -327,7 +328,7 @@ class Lexer:
             full_string = ''.join(comment_value)
 
             # Add token with the comment token
-            self.tokens.append(Token(TokenType.COMMENT_TOKEN, full_string, line, column))
+            self.tokens.append(Token(TokenType.MULTI_COMMENT_TOKEN, full_string, line, column))
             return
 
         if current == '#':
@@ -351,6 +352,6 @@ class Lexer:
             full_string = ''.join(comment_value)
 
             # Add token with the comment token type
-            self.tokens.append(Token(TokenType.COMMENT_TOKEN, full_string, line, column))
+            self.tokens.append(Token(TokenType.SINGLE_COMMENT_TOKEN, full_string, line, column))
 
             return

@@ -64,6 +64,5 @@ fun main() -> void [
 ] 
 
 ##
-This is an example of a multi-line comment.
-Are you crazy? I was crazy once.
+Example of a multi-line comment.
 ##

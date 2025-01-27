@@ -8,7 +8,8 @@ class TokenType(Enum):
 
     # Literals
     STRING_LITERAL_TOKEN = auto()
-    COMMENT_TOKEN = auto()
+    SINGLE_COMMENT_TOKEN = auto()
+    MULTI_COMMENT_TOKEN = auto()
     INT_LITERAL_TOKEN = auto()
     FLOAT_LITERAL_TOKEN = auto()
 
