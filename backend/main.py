@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 from typing import List, NoReturn
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -41,6 +42,25 @@ def print_tokens(tokens: List[Token]) -> None:
     print("-" * 120)
 
 
+def get_tokens_as_json(tokens: List[Token], output_path: str) -> None:
+    token_list = []
+
+    for token in tokens:
+        token_list.append({
+            "token": token.token_type.name,
+            "lexeme": token.lexeme,
+            "line": token.line,
+            "column": token.column
+        })
+
+    # Create output directory if it doesn't exist
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    
+    # Write to JSON file
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(token_list, f, indent=4)
+
+
 def main() -> NoReturn:
     if len(sys.argv) != 2:
         print("Usage: python main.py <source_file>")
@@ -56,6 +76,17 @@ def main() -> NoReturn:
 
     # Print the tokens
     print_tokens(tokens)
+
+    # Save tokens to JSON file
+    output_path = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        'backend',
+        'output',
+        'tokens.json'
+    )
+
+    get_tokens_as_json(tokens, output_path)
+    print(f"\nTokens have been saved to: {output_path}")
 
     # Successful exit
     sys.exit(0)
