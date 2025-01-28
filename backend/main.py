@@ -1,7 +1,7 @@
 import os
 import sys
 import json
-from typing import List, NoReturn
+from typing import Dict, List, NoReturn
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -43,22 +43,31 @@ def print_tokens(tokens: List[Token]) -> None:
 
 
 def get_tokens_as_json(tokens: List[Token], output_path: str) -> None:
-    token_list = []
-
-    for token in tokens:
-        token_list.append({
-            "token": token.token_type.name,
-            "lexeme": token.lexeme,
-            "line": token.line,
-            "column": token.column
-        })
+    token_list = convert_tokens_to_dict(tokens)
 
     # Create output directory if it doesn't exist
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
     # Write to JSON file
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(token_list, f, indent=4)
+
+
+def tokenize_string(source_code: str) -> List[Dict]:
+    # Tokenize the source code
+    lexer: Lexer = Lexer(source_code)
+    tokens: List[Token] = lexer.tokenize()
+    
+    return convert_tokens_to_dict(tokens)
+
+
+def convert_tokens_to_dict(tokens: List[Token]) -> List[Dict]:
+    return [{
+        "token": token.token_type.name,
+        "lexeme": token.lexeme,
+        "line": token.line,
+        "column": token.column
+    } for token in tokens]
 
 
 def main() -> NoReturn:
