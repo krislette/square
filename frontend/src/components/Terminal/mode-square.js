@@ -64,7 +64,7 @@ ace.define("ace/mode/jsdoc_comment_highlight_rules",["require","exports","module
                 }, {
                     token: ["comment.doc.tag", "text.doc", "variable.parameter.doc"],
                     regex: "(@(?:alias|memberof|instance|module|name|lends|namespace|external|this|template|"
-                        + "requires|param|implements|function|extends|typedef|mixes|constructor|var|"
+                        + "requires|param|implements|fun|extends|typedef|mixes|constructor|var|"
                         + "memberof\\!|event|listens|exports|class|constructs|interface|emits|fires|"
                         + "throws|const|callback|borrows|augments))(\\s+)(\\w[\\w#\.:\/~\"\\-]*)?"
                 }, {
@@ -157,7 +157,7 @@ ace.define("ace/mode/jsdoc_comment_highlight_rules",["require","exports","module
             "3[0-7][0-7]?|" + // oct
             "[4-7][0-7]?|" + //oct
             ".)";
-        var anonymousFunctionRe = "(function)(\\s*)(\\*?)";
+        var anonymousFunctionRe = "(fun)(\\s*)(\\*?)";
         var functionCallStartRule = {
             token: ["identifier", "text", "paren.lparen"],
             regex: "(\\b(?!" + Object.values(keywords).join("|") + "\\b)" + identifierRe + ")(\\s*)(\\()"
@@ -1191,7 +1191,7 @@ ace.define("ace/mode/jsdoc_comment_highlight_rules",["require","exports","module
         var tsRules = [
             {
                 token: ["storage.type", "text", "entity.name.function.ts"],
-                regex: "(function)(\\s+)([a-zA-Z0-9\$_\u00a1-\uffff][a-zA-Z0-9\d\$_\u00a1-\uffff]*)"
+                regex: "(fun)(\\s+)([a-zA-Z0-9\$_\u00a1-\uffff][a-zA-Z0-9\d\$_\u00a1-\uffff]*)"
             },
             {
                 token: "keyword",
@@ -1203,11 +1203,11 @@ ace.define("ace/mode/jsdoc_comment_highlight_rules",["require","exports","module
             },
             {
                 token: "keyword",
-                regex: "\\b(?:when|exit|print|return|skip|void|loop)\\b"
+                regex: "\\b(?:when|fun|mod|exit|print|return|skip|void|loop|range|static)\\b"
             },
             {
                 token: ["storage.type.variable.ts"],
-                regex: "(?:\\b(this\\.|string\\b|bool\\b|char\\b|double\\b|int\\b|long\\b|short\\b|signed\\b|unsigned\\b|true\\b|false\\b|undefined\\b|null\\b|(?:unique )?symbol\\b|object\\b|never\\b|enum\\b))"
+                regex: "(?:\\b(this\\.|string\\b|bool\\b|char\\b|double\\b|int\\b|long\\b|float\\b|short\\b|signed\\b|unsigned\\b|true\\b|false\\b|undefined\\b|null\\b|(?:unique )?symbol\\b|object\\b|never\\b|enum\\b))"
             }
         ];
         var JSRules = new JavaScriptHighlightRules({ jsx: (options && options.jsx) == true }).getRules();
