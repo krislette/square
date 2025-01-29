@@ -11,7 +11,12 @@ import { MdOutlineUploadFile } from "react-icons/md";
 import { useState } from "react";
 
 interface TerminalProps {
-  getLexemes: (input: string) => void;
+  getLexemes: (input: Lexeme[]) => void;
+}
+
+interface Lexeme {
+  lexeme: string;
+  token: string;
 }
 
 export default function Terminal({ getLexemes }: TerminalProps) {
@@ -48,7 +53,7 @@ my_var: string = "hello world!"`);
 
       const data = await response.json();
       console.log("Received response: ", data);
-      getLexemes(data);
+      getLexemes(data.tokens);
     } catch (error) {
       console.error("Error:", error);
     } finally {

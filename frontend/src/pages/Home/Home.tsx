@@ -13,12 +13,17 @@ export default function Home(){
         { lexeme: "(", token: "OPEN_PARENTHESIS_TOKEN" }
     ];
 
-    const [lexemes, setLexemes] = useState(mockLexemes);
+    interface Lexeme {
+        lexeme: string;
+        token: string;
+    }
+    
+
+    const [lexemes, setLexemes] = useState<Lexeme[]>([]);
 
 
-    const getLexemes = (input: string) => {
-        console.log(input)
-        // processing here
+    const getLexemes = (input: Lexeme[]) => {
+        setLexemes(input)
     }
 
     return(
