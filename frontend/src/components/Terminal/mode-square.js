@@ -125,7 +125,7 @@ ace.define("ace/mode/jsdoc_comment_highlight_rules",["require","exports","module
     var oop = require("../lib/oop");
     var DocCommentHighlightRules = require("./jsdoc_comment_highlight_rules").JsDocCommentHighlightRules;
     var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-    var identifierRe = "[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*";
+    var identifierRe = "(?!not\\b)[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*";
     var JavaScriptHighlightRules = function (options) {
         var keywords = {
             "variable.language": "Array|Boolean|Date|Function|Iterator|Number|Object|RegExp|String|Proxy|Symbol|" + // Constructors
@@ -233,7 +233,7 @@ ace.define("ace/mode/jsdoc_comment_highlight_rules",["require","exports","module
                     next: "start"
                 }, {
                     token: "keyword.operator",
-                    regex: /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/,
+                    regex: /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\||not|\?:|[!$%&*+\-~\/^]=?/,
                     next: "start"
                 }, {
                     token: "punctuation.operator",
