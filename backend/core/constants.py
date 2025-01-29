@@ -12,9 +12,7 @@ KEYWORDS: dict[str, TokenType] = {
     "int": TokenType.KW_INT_TOKEN,
     "long": TokenType.KW_LONG_TOKEN,
     "short": TokenType.KW_SHORT_TOKEN,
-    "signed": TokenType.KW_SIGNED_TOKEN,
     "str": TokenType.KW_STRING_TOKEN,
-    "unsigned": TokenType.KW_UNSIGNED_TOKEN,
     "void": TokenType.KW_VOID_TOKEN,
 
     # Control Flow Keywords
@@ -75,7 +73,7 @@ OPERATORS: dict[str, TokenType] = {
     "|": TokenType.OP_JUNCTION_OR_TOKEN,
     "||": TokenType.OP_LOGICAL_OR_TOKEN,
     "&&": TokenType.OP_LOGICAL_AND_TOKEN,
-    "not": TokenType.OP_LOGICAL_NOT_TOKEN,
+    "!": TokenType.OP_LOGICAL_NOT_TOKEN,
 
     # Comparison Operators
     "==": TokenType.OP_EQUAL_TOKEN,
