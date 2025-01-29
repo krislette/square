@@ -10,6 +10,7 @@ class TokenType(Enum):
     STRING_LITERAL_TOKEN = auto()
     INT_LITERAL_TOKEN = auto()
     FLOAT_LITERAL_TOKEN = auto()
+    DOUBLE_LITERAL_TOKEN = auto()
 
     # Keywords
     KW_BOOL_TOKEN = auto()
@@ -27,11 +28,9 @@ class TokenType(Enum):
     KW_RANGE_TOKEN = auto()
     KW_RETURN_TOKEN = auto()
     KW_SHORT_TOKEN = auto()
-    KW_SIGNED_TOKEN = auto()
     KW_SKIP_TOKEN = auto()
     KW_STATIC_TOKEN = auto()
     KW_STRING_TOKEN = auto()
-    KW_UNSIGNED_TOKEN = auto()
     KW_VOID_TOKEN = auto()
     KW_WHEN_TOKEN = auto()
 
