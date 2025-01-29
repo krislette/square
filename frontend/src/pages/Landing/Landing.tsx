@@ -4,6 +4,8 @@ function LandingPage() {
   return (
     <div className="about-page">
       <div className="square__header section__padding" id="about">
+        <div className="spotlight-shine"></div>
+
         <div className="square__header-content">
           <h1 className="gradient__text">
             Revolutionize Your Development Process with Square

@@ -33,7 +33,7 @@
 }
 
 .gradient__text {
-    background: linear-gradient(89.97deg, #679dfa 1.84%, #b767f4 102.67%);
+    background: linear-gradient(89.97deg, #0a3361 1.84%, #6cb0ff 102.67%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -116,7 +116,7 @@
 
 .btn.primary:hover {
     background: linear-gradient(90deg, #000815 1.84%, #1c2484 102.67%);
-    box-shadow: 0px 4px 12px rgba(11, 9, 41, 0.4);
+    box-shadow: 0px 4px 12px rgba(1, 0, 8, 0.4);
 }
 
 .btn.secondary:hover {
@@ -132,13 +132,35 @@
 }
 
 
-.expandable__card-section h2 {
+.about-dev {
     margin-top: 25px;
     background: linear-gradient(89.97deg, #679dfa 1.84%, #b767f4 102.67%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    z-index: 3;
 }
 
+/* .spotlight-shine {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: shine 15s infinite;
+    pointer-events: none;
+}
 
-
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+ */
