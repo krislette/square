@@ -13,7 +13,7 @@ export default function NavBar(){
             </div>
             <nav className="navbar-tabs">
                 <NavLink 
-                    to="/" 
+                    to="/home" 
                     className={location.pathname == "/" ? "active" : ""}>
                     Terminal
                 </NavLink>
