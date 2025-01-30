@@ -1,19 +1,21 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 export default function NavBar() {
-  const location = useLocation();
 
   return (
     <header id="navbar">
-      <div className="navbar-title">
+      <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? "navbar-title active" : "navbar-title")}
+      >
         <img src="sqr.png" alt="Square Logo" width={50} height={50} />
         <h1>Square</h1>
-      </div>
+      </NavLink>
       <nav className="navbar-tabs">
         <NavLink
           to="/home"
-          className={location.pathname === "/" ? "active" : ""}
+          className={({ isActive }) => (isActive ? "active" : "")}
         >
           Terminal
         </NavLink>
