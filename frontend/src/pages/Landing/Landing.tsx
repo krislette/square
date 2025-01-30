@@ -29,7 +29,7 @@ function LandingPage() {
             <Link to="/home" className="btn primary">
               Go to Terminal
             </Link>
-            <a href="/paper.pdf" target="_blank" rel="noopener noreferrer" className="btn secondary">
+            <a href="https://drive.google.com/file/d/1oMDo13Kc-LLzYHqOMS0kJsGHQaHVEd6C/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn secondary">
               View Our Paper
             </a>
           </div>
