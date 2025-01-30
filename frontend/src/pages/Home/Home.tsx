@@ -1,30 +1,37 @@
-import Terminal from "../../components/Terminal/Terminal"
-import LexemeTable from "../../components/LexemeTable/LexemeTable"
-import "./Home.css"
+import Terminal from "../../components/Terminal/Terminal";
+import LexemeTable from "../../components/LexemeTable/LexemeTable";
+import "./Home.css";
 
-import { useState } from "react"
+import { useState, useEffect } from "react";
 
-export default function Home(){
-    const mockLexemes = [
-        { lexeme: "gender", token: "IDENTIFIER_TOKEN" },
-        { lexeme: "=", token: "ASSIGNMENT_OP_TOKEN" },
-        { lexeme: "int", token: "KW_INT_TOKEN" },
-        { lexeme: "main", token: "RW_MAIN_TOKEN" },
-        { lexeme: "(", token: "OPEN_PARENTHESIS_TOKEN" }
-    ];
+export default function Home() {
+  const mockLexemes = [
+    { lexeme: "gender", token: "IDENTIFIER_TOKEN" },
+    { lexeme: "=", token: "ASSIGNMENT_OP_TOKEN" },
+    { lexeme: "int", token: "KW_INT_TOKEN" },
+    { lexeme: "main", token: "RW_MAIN_TOKEN" },
+    { lexeme: "(", token: "OPEN_PARENTHESIS_TOKEN" },
+  ];
 
-    const [lexemes, setLexemes] = useState(mockLexemes);
+  const [lexemes, setLexemes] = useState(mockLexemes);
 
+  useEffect(() => {
+    document.body.classList.add("no-scroll");
 
-    const getLexemes = (input: string) => {
-        console.log(input)
-        // processing here
-    }
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, []); 
 
-    return(
-        <main id="home-page">
-            <Terminal getLexemes={getLexemes}/>
-            <LexemeTable lexemes={lexemes}/>
-        </main>
-    )
+  const getLexemes = (input: string) => {
+    console.log(input);
+    // processing here
+  };
+
+  return (
+    <main id="home-page">
+      <Terminal getLexemes={getLexemes} />
+      <LexemeTable lexemes={lexemes} />
+    </main>
+  );
 }
