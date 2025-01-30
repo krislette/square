@@ -17,11 +17,6 @@ export default function NavBar(){
                     className={location.pathname == "/" ? "active" : ""}>
                     Terminal
                 </NavLink>
-                <NavLink 
-                    to="/about" 
-                    className={location.pathname == "/about" ? "active" : ""}>
-                    About
-                </NavLink>
             </nav>
         </header>
     )

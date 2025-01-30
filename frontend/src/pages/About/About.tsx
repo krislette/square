@@ -1,5 +1,4 @@
 import './About.css';
-import ExpandableCard from "../../components/Card/Card"
 
 export default function About() {
     return (
