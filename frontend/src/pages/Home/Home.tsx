@@ -4,24 +4,18 @@ import "./Home.css";
 
 import { useState, useEffect } from "react";
 
-export default function Home() {
-  const mockLexemes = [
-    { lexeme: "gender", token: "IDENTIFIER_TOKEN" },
-    { lexeme: "=", token: "ASSIGNMENT_OP_TOKEN" },
-    { lexeme: "int", token: "KW_INT_TOKEN" },
-    { lexeme: "main", token: "RW_MAIN_TOKEN" },
-    { lexeme: "(", token: "OPEN_PARENTHESIS_TOKEN" },
-  ];
+interface Lexeme {
+    lexeme: string;
+    token: string;
+}
 
-  const [lexemes, setLexemes] = useState(mockLexemes);
+export default function Home(){
 
-  useEffect(() => {
-    document.body.classList.add("no-scroll");
+    const [lexemes, setLexemes] = useState<Lexeme[]>([]);
 
-    return () => {
-      document.body.classList.remove("no-scroll");
-    };
-  }, []); 
+    const getLexemes = (input: Lexeme[]) => {
+        setLexemes(input)
+    }
 
   const getLexemes = (input: string) => {
     console.log(input);

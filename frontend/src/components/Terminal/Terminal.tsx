@@ -8,10 +8,15 @@ import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/theme-dracula";
 import { MdOutlineUploadFile } from "react-icons/md";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface TerminalProps {
-  getLexemes: (input: string) => void;
+  getLexemes: (input: Lexeme[]) => void;
+}
+
+interface Lexeme {
+  lexeme: string;
+  token: string;
 }
 
 export default function Terminal({ getLexemes }: TerminalProps) {
@@ -19,6 +24,10 @@ export default function Terminal({ getLexemes }: TerminalProps) {
   const [input, setInput] = useState<string>(`# type your code here!
 my_var: string = "hello world!"`);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    handleGenerate();
+  }, [])
 
   const handleChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     setTheme(e.target.value);
@@ -48,7 +57,7 @@ my_var: string = "hello world!"`);
 
       const data = await response.json();
       console.log("Received response: ", data);
-      getLexemes(data);
+      getLexemes(data.tokens);
     } catch (error) {
       console.error("Error:", error);
     } finally {
