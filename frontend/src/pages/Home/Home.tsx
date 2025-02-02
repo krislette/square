@@ -5,21 +5,23 @@ import "./Home.css";
 import { useState } from "react";
 
 interface Lexeme {
-    lexeme: string;
-    token: string;
+  lexeme: string;
+  token: string;
+  line: number;
+  column: number;
 }
 
 export default function Home() {
-    const [lexemes, setLexemes] = useState<Lexeme[]>([]);
+  const [lexemes, setLexemes] = useState<Lexeme[]>([]);
 
-    const getLexemes = (input: Lexeme[]) => {
-        setLexemes(input);
-    };
+  const getLexemes = (input: Lexeme[]) => {
+    setLexemes(input);
+  };
 
-    return (
-        <main id="home-page">
-            <Terminal getLexemes={getLexemes} />
-            <LexemeTable lexemes={lexemes} />
-        </main>
-    );
+  return (
+    <main id="home-page">
+      <Terminal getLexemes={getLexemes} />
+      <LexemeTable lexemes={lexemes} />
+    </main>
+  );
 }
