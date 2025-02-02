@@ -4,6 +4,8 @@
     color: white;
     overflow: hidden;
     height: 100vh;
+    position: relative;
+    box-sizing: border-box;
 }
 
 #home-page::after {
@@ -15,4 +17,13 @@
     height: 100%;
     background: radial-gradient(circle at center, transparent 20%, black);
     z-index: -1;
+}
+
+#home-page > * {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden;
 }
