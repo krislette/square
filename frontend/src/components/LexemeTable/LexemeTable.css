@@ -1,77 +1,281 @@
 #lexeme {
     padding: 2em 2em 2em 0em;
-    width: 40%;
+    width: 50%;
+    margin: 0 auto;
 }
 
-.lexeme-table-container {
-    width: 100%;
-    height: 80vh;
+.lexeme-controls {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.lex-table-head-container {
+.lexeme-search {
+    flex: 1;
+    padding: 10px 10px 10px 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #1c1c1c;
-
-    border-radius: 20px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
+    border-radius: 6px;
+    font-size: 14px;
+    color: #7F98A1;
+    background-color: #01060B;
 }
 
-.lex-table-body-container {
+.lexeme-filter {
+    padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #1c1c1c;
-
-    overflow-y: auto;
-    border-radius: 20px;
-    height: 100%;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #7F98A1;
+    background-color: #000A14;
+    cursor: pointer;
 }
 
-.lexeme-table-head {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-    height: 40px;
+.lexeme-table-container{
+    height: 81%;
+    overflow-y: scroll;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
 }
 
-.lexeme-table-body {
-    display: table;
-    table-layout: fixed;
+.lexeme-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 20px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    table-layout: fixed; 
 }
 
-.lexeme-table-body tr {
-    display: table-row;
-    width: 100%;
+.lexeme-table th,
+.lexeme-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lexeme-table th{
+    position: sticky;
+    padding-left: 20px;
+    top: 0;
+    z-index: 1;
+}
+
+.lexeme-table tr{
+    position: sticky;
+    padding-left: 20px;
+    top: 0;
+    z-index: 1;
+}
+
+.lexeme-table th {
+    font-weight: 600;
+    color: #D1D7E0;
+    background-color: #000A14;
+}
+
+.lexeme-table tbody tr:hover {
+    background-color: #f6f8fa;
+}
+
+.th-lexeme {
+    width: 40%; 
+}
+
+.th-token {
+    width: 50%; 
+}
+
+.th-line,
+.th-column {
+    width: 10%; 
 }
 
 .td-lexeme {
-    padding: 10px;
+    word-wrap: break-word; 
+    color: #7F98A1;
 }
 
 .td-token {
-    padding: 14px 14px 14px 16px;
-    border: 1px solid #ddd;
-    font-size: 12px;
+    word-wrap: break-word; 
+}
+
+.td-line,
+.td-column {
+    text-align: center; 
+    font-size: 14px;
+    color: #7F98A1;
+}
+
+.token-tag {
+    display: inline-block;
+    padding: 4px 8px;
     border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
 }
 
-.lex-table-body-container::-webkit-scrollbar {
-    width: 20px;
+.token-identifier_token {
+    color: #A5B8FF;
+    background-color: #2F3155;
+    border: 1px solid #5B5988;
+    border-radius: 40px;
+    padding: 6px 10px;
+
 }
 
+.token-string_literal_token,
+.token-int_literal_token,
+.token-float_literal_token {
+    color: #35ABFF;
+    background-color: #1B364B;
+    border: 1px solid #235981;
+    border-radius: 40px;
+    padding: 6px 10px;
+}
 
-.lex-table-body-container::-webkit-scrollbar-thumb {
+.token-kw_bool_token,
+.token-kw_char_token,
+.token-kw_const_token,
+.token-kw_double_token,
+.token-kw_exit_token,
+.token-kw_float_token,
+.token-kw_get_token,
+.token-kw_int_token,
+.token-kw_long_token,
+.token-kw_loop_token,
+.token-kw_mod_token,
+.token-kw_print_token,
+.token-kw_range_token,
+.token-kw_return_token,
+.token-kw_short_token,
+.token-kw_signed_token,
+.token-kw_skip_token,
+.token-kw_static_token,
+.token-kw_string_token,
+.token-kw_unsigned_token,
+.token-kw_void_token,
+.token-kw_when_token {
+    color: #E5DB51;
+    background-color: #444A3A;
+    border: 1px solid #747847;
+    border-radius: 40px;
+    padding: 6px 10px;
+}
+
+.token-rw_bool_true_token,
+.token-rw_bool_false_token,
+.token-rw_main_token {
+    color: #99EEEE;
+    background-color: #384C52;
+    border: 1px solid #577D81; 
+    border-radius: 40px;
+    padding: 6px 10px;
+}
+
+.token-nw_in_token {
+    color: #EB9C9B;
+    background-color: #422B34;
+    border: 1px solid #754D56;
+    border-radius: 40px;
+    padding: 6px 10px;
+}
+
+.token-op_assignment_token,
+.token-op_addition_assignment_token,
+.token-op_subtraction_assignment_token,
+.token-op_multiplication_assignment_token,
+.token-op_division_assignment_token,
+.token-op_modulus_assignment_token,
+.token-op_plus_token,
+.token-op_minus_token,
+.token-op_multiply_token,
+.token-op_divide_token,
+.token-op_modulo_token,
+.token-op_int_divide_token,
+.token-op_exponent_token,
+.token-op_increment_token,
+.token-op_decrement_token,
+.token-op_junction_or_token,
+.token-op_logical_or_token,
+.token-op_logical_and_token,
+.token-op_logical_not_token,
+.token-op_equal_token,
+.token-op_not_equal_token,
+.token-op_greater_than_token,
+.token-op_less_than_token,
+.token-op_greater_than_or_equal_token,
+.token-op_less_than_or_equal_token {
+    color: #00E6C4;
+    background-color: #1B393C;
+    border:  1px solid #136D64;
+    border-radius: 40px;
+    padding: 6px 10px;
+}
+
+.token-delimiter_token,
+.token-comma_token {
+    color: #E5DB51;
+    background-color: #444A3A;
+    border: 1px solid #747847;
+    border-radius: 40px;
+    padding: 6px 10px;
+}
+
+.token-open_square_token,
+.token-close_square_token,
+.token-open_parenthesis_token,
+.token-close_parenthesis_token {
+    color: #BC72E0;
+    background-color: #423650;
+    border: 1px solid #6F4B7C;
+    border-radius: 40px;
+    padding: 6px 10px;
+}
+
+.token-single_comment_token,
+.token-multi_comment_token {
+    color: #C0D1D5;
+    background-color: #40474E;
+    border: 1px solid #6A7076;
+    border-radius: 40px;
+    padding: 6px 10px;
+}
+
+.token-scope_resolution_token,
+.token-attribute_access_token,
+.token-function_type_assignment_token,
+.token-data_type_assignment_token,
+.token-function_token {
+    color: #FFFFFF;
+    background-color: #494F55;
+    border: 1px solid #808488;
+    border-radius: 40px;
+    padding: 6px 10px;
+}
+
+.no-lexemes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #6a737d;
+    height: 75%;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+.lexeme-table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.lexeme-table-container::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 10px;
 }
 
-.lex-table-body-container::-webkit-scrollbar-thumb:hover {
+.lexeme-table-container::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
