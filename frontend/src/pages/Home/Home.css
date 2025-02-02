@@ -2,6 +2,8 @@
     display: flex; 
     flex-direction: row;
     color: white;
+    overflow: hidden;
+    height: 100vh;
 }
 
 #home-page::after {
@@ -14,9 +16,3 @@
     background: radial-gradient(circle at center, transparent 20%, black);
     z-index: -1;
 }
-
-.no-scroll {
-    overflow: hidden;
-    height: 100vh;
-}
-
