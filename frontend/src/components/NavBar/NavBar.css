@@ -15,7 +15,15 @@
     flex-direction: row; 
     gap: 1em; 
     align-items: center;
-    color: white;
+    background: linear-gradient(89.97deg, #0a3361 1.84%, #6cb0ff 102.67%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    color: transparent;
+}
+
+.navbar-title.active {
+    border-bottom: 2px solid #6cb0ff;
 }
 
 .navbar-tabs {

@@ -1,28 +1,25 @@
-import { NavLink, useLocation } from "react-router-dom"
-import { FaRegSquare } from "react-icons/fa";
-import "./NavBar.css"
+import { NavLink } from "react-router-dom";
+import "./NavBar.css";
 
-export default function NavBar(){
-    const location = useLocation();
+export default function NavBar() {
 
-    return(
-        <header id="navbar">
-            <div className="navbar-title">
-                <FaRegSquare size={50} />
-                <h1>Square</h1>
-            </div>
-            <nav className="navbar-tabs">
-                <NavLink 
-                    to="/" 
-                    className={location.pathname == "/" ? "active" : ""}>
-                    Terminal
-                </NavLink>
-                <NavLink 
-                    to="/about" 
-                    className={location.pathname == "/about" ? "active" : ""}>
-                    About
-                </NavLink>
-            </nav>
-        </header>
-    )
+  return (
+    <header id="navbar">
+      <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? "navbar-title active" : "navbar-title")}
+      >
+        <img src="sqr.png" alt="Square Logo" width={50} height={50} />
+        <h1>Square</h1>
+      </NavLink>
+      <nav className="navbar-tabs">
+        <NavLink
+          to="/home"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Terminal
+        </NavLink>
+      </nav>
+    </header>
+  );
 }

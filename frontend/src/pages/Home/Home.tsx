@@ -1,8 +1,8 @@
-import Terminal from "../../components/Terminal/Terminal"
-import LexemeTable from "../../components/LexemeTable/LexemeTable"
-import "./Home.css"
+import Terminal from "../../components/Terminal/Terminal";
+import LexemeTable from "../../components/LexemeTable/LexemeTable";
+import "./Home.css";
 
-import { useState } from "react"
+import { useState, useEffect } from "react";
 
 interface Lexeme {
     lexeme: string;
@@ -17,10 +17,15 @@ export default function Home(){
         setLexemes(input)
     }
 
-    return(
-        <main id="home-page">
-            <Terminal getLexemes={getLexemes}/>
-            <LexemeTable lexemes={lexemes}/>
-        </main>
-    )
+  const getLexemes = (input: string) => {
+    console.log(input);
+    // processing here
+  };
+
+  return (
+    <main id="home-page">
+      <Terminal getLexemes={getLexemes} />
+      <LexemeTable lexemes={lexemes} />
+    </main>
+  );
 }

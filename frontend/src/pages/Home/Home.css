@@ -4,3 +4,19 @@
     color: white;
 }
 
+#home-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 20%, black);
+    z-index: -1;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
