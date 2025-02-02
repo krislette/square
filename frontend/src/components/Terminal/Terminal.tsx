@@ -43,7 +43,7 @@ my_var: string = "hello world!"`);
     try {
       setIsLoading(true);
 
-      const response = await fetch("http://127.0.0.1:8000/tokenize", {
+      const response = await fetch(import.meta.env.VITE_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +128,7 @@ my_var: string = "hello world!"`);
         name="editor"
         editorProps={{ $blockScrolling: true }}
         width="100%"
-        height="75vh"
+        height="74vh"
         fontSize={16}
         onChange={handleChangeInput}
         value={input}

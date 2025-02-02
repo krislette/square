@@ -2,6 +2,7 @@
     padding: 2em 2em 2em 0em;
     width: 50%;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .lexeme-controls {
@@ -31,8 +32,8 @@
 }
 
 .lexeme-table-container{
-    height: 81%;
-    overflow-y: scroll;
+    max-height: 80%;
+    overflow-y: auto;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
@@ -40,11 +41,12 @@
 
 .lexeme-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    table-layout: fixed; 
+    table-layout: auto; 
 }
 
 .lexeme-table th,
@@ -58,11 +60,10 @@
     position: sticky;
     padding-left: 20px;
     top: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 .lexeme-table tr{
-    position: sticky;
     padding-left: 20px;
     top: 0;
     z-index: 1;

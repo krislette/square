@@ -78,6 +78,11 @@ input[type="file"] {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.terminal-theme-dropdown:focus {
+    border-color: #01000e; 
+    background-color: #010a13; 
+  }
+
 .terminal-btns-upload {
     height: 39px;
     border-radius: 9999px;
