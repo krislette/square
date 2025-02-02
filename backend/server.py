@@ -1,16 +1,13 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 from main import tokenize_string
 
 
+# Initialize app
 app = FastAPI()
-
-
-# Pydantic model for request validation
-class SourceCode(BaseModel):
-    code: str
-
 
 # Add CORS middleware to allow frontend requests
 app.add_middleware(
@@ -21,9 +18,19 @@ app.add_middleware(
     allow_headers=["*"],    # Allows all headers
 )
 
+# Set up rate limiting
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+
+
+# Pydantic model for request validation
+class SourceCode(BaseModel):
+    code: str
+
 
 @app.get("/")
-async def root():
+@limiter.limit("50/minute")
+async def root(request: Request):
     return {
         "message": "Welcome to the Square's tokenizer API!",
         "endpoints": {
@@ -34,7 +41,8 @@ async def root():
 
 
 @app.post("/tokenize")
-async def tokenize(source: SourceCode):
+@limiter.limit("50/minute")
+async def tokenize(request: Request, source: SourceCode):
     try:
         tokens = tokenize_string(source.code)
         return {"tokens": tokens}

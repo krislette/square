@@ -1,0 +1,29 @@
+#home-page {
+    display: flex; 
+    flex-direction: row;
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#home-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 20%, black);
+    z-index: -1;
+}
+
+#home-page > * {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden;
+}
