@@ -227,9 +227,9 @@
 .token-close_square_token,
 .token-open_parenthesis_token,
 .token-close_parenthesis_token {
-    color: #BC72E0;
-    background-color: #423650;
-    border: 1px solid #6F4B7C;
+    color: #9AEDAD;
+    background-color: #1E3627;
+    border: 1px solid #385745;
     border-radius: 40px;
     padding: 6px 10px;
 }
