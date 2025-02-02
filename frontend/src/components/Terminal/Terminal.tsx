@@ -17,6 +17,8 @@ interface TerminalProps {
 interface Lexeme {
   lexeme: string;
   token: string;
+  line: number;
+  column: number;
 }
 
 export default function Terminal({ getLexemes }: TerminalProps) {
