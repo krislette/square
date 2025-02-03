@@ -7,4 +7,4 @@ def is_num(char: str) -> bool:
 
 
 def is_space(char: str) -> bool:
-    return char == ' '
+    return char in {' ', '\n', '\t', '\r', '\f', '\v'}
