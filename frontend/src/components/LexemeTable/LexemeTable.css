@@ -262,13 +262,14 @@
 
 .no-lexemes {
     display: flex;
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 800;
     padding: 5px 20px;
     border-radius: 8px;
-    margin: -10px auto 15px auto;
+    margin: -50px auto 15px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     
     background: linear-gradient(
@@ -283,13 +284,58 @@
     -webkit-background-clip: text;
     background-clip: text;
     animation: shine 4s linear infinite;
+    text-align: center; 
 }
 
-  @keyframes shine {
+@keyframes shine {
     to {
       background-position: 200% center;
     }
-  }
+}
+
+.loader {
+    position: relative; 
+    width: 60px;
+    height: 60px;
+    margin-top: 30px; 
+    box-shadow: 0 0 0 16px #0a0131 inset;
+}
+
+.loader:before,
+.loader:after {
+    position: absolute;
+    background: #1c00a5;
+    content: "";
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+    animation: square 4s linear infinite;
+}
+
+.loader:after {
+    background: #aad1f8;
+    animation-delay: -2s;
+}
+
+@keyframes square {
+    25% {
+        left: 100%;
+        top: 0;
+        transform: translate(-100%, 0);
+    }
+    50% {
+        left: 100%;
+        top: 100%;
+        transform: translate(-100%, -100%);
+    }
+    75% {
+        left: 0;
+        top: 100%;
+        transform: translate(0, -100%);
+    }
+}
+
 
 .lexeme-table-container::-webkit-scrollbar {
     width: 10px;
