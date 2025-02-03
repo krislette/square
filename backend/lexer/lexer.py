@@ -256,7 +256,7 @@ class Lexer:
 
             # End of file before closing the quote
             if current is None:
-                raise ValueError("Unterminated string literal.")
+                raise LexicalError("Unterminated string literal", self.line, self.column)
 
             # Closing quote ends the string
             if current == opening_quote:
