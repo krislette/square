@@ -30,10 +30,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Square is a programming language designed with beginners in mind. Its syntax is built around square brackets, which is where its name is derived from, 
-maintaining simplicity and clarity. This general programming language emphasizes ease of learning and readability, making it 
-an ideal starting point for those who are just beginning their programming journey. The programming language draws inspiration from C for its robust static typing and fast 
-compile time, which ensure efficient performance and reduced runtime errors. 
+Square is a programming language designed with beginners in mind. Its syntax is built around square brackets where its name is derived from, to maintain simplicity and clarity. 
+This general programming language emphasizes ease of learning and readability, to make it an ideal starting point for those who are just beginning their programming journey. 
+The programming language draws inspiration from C for its robust static typing and fast compile time, to make sure efficient performance and reduced runtime errors. 
 
 <!-- TABLE OF CONTENTS -->
 ## Table Of Contents
@@ -85,7 +84,7 @@ fun example() -> void [
 ]
 ```
 
-#### 2. Simplified Conditional Statements
+#### 2. Junction
 - Innovative "junction" operator for cleaner OR conditions
 - Reduces code redundancy
 - More readable conditional logic
@@ -128,7 +127,7 @@ temperature: float = 98.6
 - Type-safe field declarations
 - Default value support
 ```square
-mod User [
+mod user [
     name: str = "Guest"
     age: int = 0
     active: bool = true
@@ -144,6 +143,7 @@ mod User [
 
 ### Deployment and Hosting
 - **[Netlify](https://www.netlify.com/)**: A powerful platform for deploying and hosting modern web applications, offering continuous deployment, serverless functions, and global CDN for fast performance.
+- **[Vercel](https://vercel.com/)**: A cutting-edge platform for deploying and hosting modern web applications, providing seamless continuous deployment, serverless functions, and a global edge network for blazing-fast performance and scalability.
 
 ### Development Tools  
 - **[Git](https://git-scm.com/)**: Distributed version control system for tracking code changes and collaboration.  
@@ -209,7 +209,7 @@ mod User [
         <td><img src="https://avatars.githubusercontent.com/u/116869096?s=400&u=43146b191775802d9ab2f0f721b452ffc52c9efa&v=4" alt="" style="border-radius: 50%; width: 50px;"></td>
         <td><a href="https://github.com/feiryrej">feiryrej</a></td>
         <td>
-          <b>Frontend Developer:</b> Regina is responsible for making the landing page and overall UI refinement across all pages including the terminal and lexeme table.
+          <b>Frontend Developer:</b> Regina is responsible for making the landing page and overall UI refinement across all pages including the terminal and lexeme table. She also name the language. 
         </td>
       </tr>
       <tr>
