@@ -23,11 +23,11 @@ class Lexer:
         self.transition_table = {
             State.START: {
                 'operator': lambda char: char in '+-*/<>=!|%~&.',
-                'number': lambda char: isNum(char),
-                'identifier': lambda char: isAlpha(char) or char == '_',
+                'number': lambda char: is_num(char),
+                'identifier': lambda char: is_alpha(char) or char == '_',
                 'string': lambda char: char == '"',
                 'delimiter': lambda char: char in '()[].:,',
-                'whitespace': lambda char: isSpace(char),
+                'whitespace': lambda char: is_space(char),
                 'comment': lambda char: char  == '#'
             }
         }
