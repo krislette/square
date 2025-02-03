@@ -262,15 +262,34 @@
 
 .no-lexemes {
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    color: #6a737d;
-    height: 75%;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 5px 20px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    margin: -10px auto 15px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    background: linear-gradient(
+      to right,
+      #2c527d 20%,
+      #8fbef4 40%,
+      #8fbef4 60%,
+      #2c527d 80%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 4s linear infinite;
 }
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
 
 .lexeme-table-container::-webkit-scrollbar {
     width: 10px;
