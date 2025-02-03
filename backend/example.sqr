@@ -37,7 +37,7 @@ fun demo_four() -> void [
     my_value: int = 8.
 
     when my_value [
-        == !2 :: print("Your value is 2.").
+        == 2 :: print("Your value is 2.").
         == 4 :: print("Your value is 4.").
         == 6 :: print("Your value is 6.").
         == 8 :: print("Your value is 8.").
