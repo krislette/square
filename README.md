@@ -164,16 +164,16 @@ mod User [
 ### Terminal Themes
 #### Dark Mode
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-  <img src="https://github.com/user-attachments/assets/c014e4df-ec4b-4593-a09a-bb3a5a7480d7" style="width: 33%; height: auto;"/>
-  <img src="https://github.com/user-attachments/assets/217a0d7a-dda3-4a3d-b809-1b8058ee4654" style="width: 33%; height: auto;"/>
-  <img src="https://github.com/user-attachments/assets/b31a1d47-7140-4296-a94c-21b1dea977f0" style="width: 33%; height: auto;"/>
+  <img src="https://github.com/user-attachments/assets/c014e4df-ec4b-4593-a09a-bb3a5a7480d7" style="width: 32%; height: auto;"/>
+  <img src="https://github.com/user-attachments/assets/217a0d7a-dda3-4a3d-b809-1b8058ee4654" style="width: 32%; height: auto;"/>
+  <img src="https://github.com/user-attachments/assets/b31a1d47-7140-4296-a94c-21b1dea977f0" style="width: 32%; height: auto;"/>
 </div>
 
 #### Light Mode
 <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-  <img src="https://github.com/user-attachments/assets/54374756-e652-42fe-94e1-b84f1ccedfc3" style="width: 33%; height: auto;"/>
-  <img src="https://github.com/user-attachments/assets/7f7f07a7-e571-4965-ac35-3515b09d83cf" style="width: 33%; height: auto;"/>
-  <img src="https://github.com/user-attachments/assets/0de188fe-f9eb-41ba-8c4f-022b079fc747" style="width: 33%; height: auto;"/>
+  <img src="https://github.com/user-attachments/assets/54374756-e652-42fe-94e1-b84f1ccedfc3" style="width: 32%; height: auto;"/>
+  <img src="https://github.com/user-attachments/assets/7f7f07a7-e571-4965-ac35-3515b09d83cf" style="width: 32%; height: auto;"/>
+  <img src="https://github.com/user-attachments/assets/0de188fe-f9eb-41ba-8c4f-022b079fc747" style="width: 32%; height: auto;"/>
 </div>
 
 <!-- INSTALLATION -->
@@ -200,7 +200,8 @@ mod User [
         <td><img src="https://avatars.githubusercontent.com/u/143507354?v=4" alt="" style="border-radius: 50%; width: 50px;"></td>
         <td><a href="https://github.com/krislette">krislette</a></td>
         <td>
-          <b>Lead Developer:</b>
+          <b>Lead Developer:</b> Acelle oversaw the entire development process, created the lexer, and managed the tokenization process, converting features into tokens. 
+          Acelle built the backbone of the backend, set up the server, and deployed both the frontend and backend. 
         </td>
       </tr>
       <tr>
@@ -251,7 +252,7 @@ mod User [
         <td><a href="https://github.com/HansQueja">HansQueja</a></td>
         <td>
           <b>Backend Developer:</b> Hans is one of the developers responsible in defining and implementing the tokenization process. He also contributes in identifying and 
-          categorizing tokens, standard processes in lexical analysis.
+          categorizing tokens, standard processes in lexical analysis. He is also responsible for tweaking additional tokens.
         </td>
       </tr>
       <tr>
