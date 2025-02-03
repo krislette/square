@@ -280,3 +280,28 @@
 .lexeme-table-container::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+  
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    background-color: #fff1f0;
+    border: 1px solid #ffa39e;
+    border-radius: 4px;
+}
+  
+.error-message h3 {
+    color: #cf1322;
+    margin-bottom: 1rem;
+}
+  
+.error-message p {
+    color: #434343;
+    margin-bottom: 0.5rem;
+}
