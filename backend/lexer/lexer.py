@@ -3,6 +3,7 @@ from backend.lexer.errors import LexicalError
 from backend.core.constants import KEYWORDS, OPERATORS, DELIMITERS
 from backend.core.states import State
 from typing import List, Optional
+from .helpers import isAlpha, isNum, isSpace
 
 
 class Lexer:
@@ -22,11 +23,11 @@ class Lexer:
         self.transition_table = {
             State.START: {
                 'operator': lambda char: char in '+-*/<>=!|%~&.',
-                'number': lambda char: char.isdigit(),
-                'identifier': lambda char: char.isalpha() or char == '_',
+                'number': lambda char: isNum(char),
+                'identifier': lambda char: isAlpha(char) or char == '_',
                 'string': lambda char: char == '"',
                 'delimiter': lambda char: char in '()[].:,',
-                'whitespace': lambda char: char.isspace(),
+                'whitespace': lambda char: isSpace(char),
                 'comment': lambda char: char  == '#'
             }
         }
