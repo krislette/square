@@ -2,7 +2,6 @@
     padding: 2em 2em 2em 0em;
     width: 50%;
     margin: 0 auto;
-    overflow: hidden;
 }
 
 .lexeme-controls {
@@ -49,6 +48,12 @@
     table-layout: auto; 
 }
 
+.lexeme-table thead {
+    top: 0;
+    z-index: 1;
+    background-color: #000A14
+}
+
 .lexeme-table th,
 .lexeme-table td {
     padding: 12px 15px;
@@ -57,7 +62,6 @@
 }
 
 .lexeme-table th{
-    position: sticky;
     padding-left: 20px;
     top: 0;
     z-index: 2;
@@ -291,17 +295,19 @@
 .error-message {
     text-align: center;
     padding: 2rem;
-    background-color: #fff1f0;
-    border: 1px solid #ffa39e;
+    border: 1px solid #030f1b;
     border-radius: 4px;
+    background-color: #000A14;
 }
   
 .error-message h3 {
-    color: #cf1322;
-    margin-bottom: 1rem;
+    color: #a3032b;
+    border-radius: 40px;
+    padding: 6px 6px;
 }
   
 .error-message p {
-    color: #434343;
+    color: #aba5a5;
     margin-bottom: 0.5rem;
+    margin-top: 0.7rem;
 }

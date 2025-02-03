@@ -37,8 +37,9 @@ interface LexerResponse {
 
 export default function Terminal({ getLexerResponse }: TerminalProps) {
   const [theme, setTheme] = useState<string>("clouds_midnight");
-  const [input, setInput] = useState<string>(`# type your code here!
-my_var: string = "hello world!"`);
+  const [input, setInput] = useState<string>(`# Type your code here!
+my_var: str = "hello world!"
+print(my_var).`);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -57,7 +58,7 @@ my_var: string = "hello world!"`);
     try {
       setIsLoading(true);
 
-      const response = await fetch("http://127.0.0.1:8000/tokenize", {
+      const response = await fetch(import.meta.env.VITE_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
