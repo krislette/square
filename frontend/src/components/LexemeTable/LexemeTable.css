@@ -2,7 +2,6 @@
     padding: 2em 2em 2em 0em;
     width: 50%;
     margin: 0 auto;
-    overflow: hidden;
 }
 
 .lexeme-controls {
@@ -32,7 +31,7 @@
 }
 
 .lexeme-table-container{
-    max-height: 80%;
+    height: 80%;
     overflow-y: auto;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -49,6 +48,12 @@
     table-layout: auto; 
 }
 
+.lexeme-table thead {
+    top: 0;
+    z-index: 1;
+    background-color: #000A14
+}
+
 .lexeme-table th,
 .lexeme-table td {
     padding: 12px 15px;
@@ -57,7 +62,6 @@
 }
 
 .lexeme-table th{
-    position: sticky;
     padding-left: 20px;
     top: 0;
     z-index: 2;
@@ -258,15 +262,80 @@
 
 .no-lexemes {
     display: flex;
-    align-items: center;
+    flex-direction: column; 
     justify-content: center;
-    text-align: center;
-    color: #6a737d;
-    height: 75%;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 5px 20px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 20px;
+    margin: -50px auto 15px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    background: linear-gradient(
+      to right,
+      #2c527d 20%,
+      #8fbef4 40%,
+      #8fbef4 60%,
+      #2c527d 80%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 4s linear infinite;
+    text-align: center; 
 }
+
+@keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+}
+
+.loader {
+    position: relative; 
+    width: 60px;
+    height: 60px;
+    margin-top: 30px; 
+    box-shadow: 0 0 0 16px #0a0131 inset;
+}
+
+.loader:before,
+.loader:after {
+    position: absolute;
+    background: #1c00a5;
+    content: "";
+    width: 14px;
+    height: 14px;
+    left: 0;
+    top: 0;
+    animation: square 4s linear infinite;
+}
+
+.loader:after {
+    background: #aad1f8;
+    animation-delay: -2s;
+}
+
+@keyframes square {
+    25% {
+        left: 100%;
+        top: 0;
+        transform: translate(-100%, 0);
+    }
+    50% {
+        left: 100%;
+        top: 100%;
+        transform: translate(-100%, -100%);
+    }
+    75% {
+        left: 0;
+        top: 100%;
+        transform: translate(0, -100%);
+    }
+}
+
 
 .lexeme-table-container::-webkit-scrollbar {
     width: 10px;
@@ -279,4 +348,31 @@
 
 .lexeme-table-container::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+  
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid #030f1b;
+    border-radius: 4px;
+    background-color: #000A14;
+}
+  
+.error-message h3 {
+    color: #a3032b;
+    border-radius: 40px;
+    padding: 6px 6px;
+}
+  
+.error-message p {
+    color: #aba5a5;
+    margin-bottom: 0.5rem;
+    margin-top: 0.7rem;
 }

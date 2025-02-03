@@ -1,6 +1,6 @@
 #terminal {
     padding: 2em;
-    width: 60%;
+    width: 50%;
 }
 
 input[type="file"] {
@@ -33,15 +33,15 @@ input[type="file"] {
 }
 
 .terminal-generate-btn > p {
-    background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    background: linear-gradient(89.97deg, #2c527d 1.84%, #8fbef4 102.67%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
 }
 
 .terminal-generate-btn:hover {
-    background: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
-    box-shadow: #ae67fa65  0px 5px 15px 0px;
+    background: linear-gradient(89.97deg, #062141 1.84%, #205694 102.67%);
+    box-shadow: #6e67fa65  0px 5px 15px 0px;
 }
 
 .terminal-generate-btn:hover > p {

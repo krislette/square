@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from slowapi import Limiter
 from slowapi.util import get_remote_address
 from main import tokenize_string
+from backend.lexer.errors import TokenizationError
 
 
 # Initialize app
@@ -45,6 +46,19 @@ async def root(request: Request):
 async def tokenize(request: Request, source: SourceCode):
     try:
         tokens = tokenize_string(source.code)
-        return {"tokens": tokens}
+        return {"status": "success", "tokens": tokens}
+    except TokenizationError as e:
+        return {
+            "status": "error",
+            "error": {
+                "type": "TokenizationError",
+                "message": str(e),
+                "details": {
+                    "line": e.line,
+                    "column": e.column,
+                    "invalid_token": e.token
+                }
+            }
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

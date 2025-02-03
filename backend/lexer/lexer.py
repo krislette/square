@@ -3,6 +3,7 @@ from backend.lexer.errors import LexicalError
 from backend.core.constants import KEYWORDS, OPERATORS, DELIMITERS
 from backend.core.states import State
 from typing import List, Optional
+from backend.lexer.helpers import is_alpha, is_num, is_space
 
 
 class Lexer:
@@ -22,11 +23,11 @@ class Lexer:
         self.transition_table = {
             State.START: {
                 'operator': lambda char: char in '+-*/<>=!|%~&.',
-                'number': lambda char: char.isdigit(),
-                'identifier': lambda char: char.isalpha() or char == '_',
+                'number': lambda char: is_num(char),
+                'identifier': lambda char: is_alpha(char) or char == '_',
                 'string': lambda char: char == '"',
                 'delimiter': lambda char: char in '()[].:,',
-                'whitespace': lambda char: char.isspace(),
+                'whitespace': lambda char: is_space(char),
                 'comment': lambda char: char  == '#'
             }
         }
@@ -120,7 +121,7 @@ class Lexer:
                 # State: Error
                 # If no valid transition is found, raise a lexical error
                 else:
-                    raise LexicalError(current, self.line, self.column)
+                    raise LexicalError(f"Invalid token '{current}'", self.line, self.column)
 
             # Reset to start state after processing
             self.current_state = State.START
@@ -172,7 +173,7 @@ class Lexer:
             return
 
         # Unrecognized operator error
-        raise ValueError(f"Unrecognized operator: {current}")
+        raise LexicalError(f"Invalid token '{current}'", self.line, self.column)
 
     def _tokenize_number(self) -> None:
         """Tokenize numbers, including integers and floating-point numbers.
@@ -255,7 +256,7 @@ class Lexer:
 
             # End of file before closing the quote
             if current is None:
-                raise ValueError("Unterminated string literal.")
+                raise LexicalError("Unterminated string literal", self.line, self.column)
 
             # Closing quote ends the string
             if current == opening_quote:

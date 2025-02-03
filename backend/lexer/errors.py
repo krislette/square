@@ -28,3 +28,16 @@ class LexicalError(Exception):
             "3. Implement parsing for this character type"
             "\n" + "-" * 80
         )
+
+
+class TokenizationError(Exception):
+    """Custom exception for tokenization errors."""
+    def __init__(self, character: str, line: int, column: int):
+        self.token = character
+        self.line = line
+        self.column = column
+        self.message = self._generate_error_message()
+        super().__init__(self.message)
+    
+    def _generate_error_message(self) -> str:
+        return f"Error: {self.token} at line {self.line}, column {self.column}"

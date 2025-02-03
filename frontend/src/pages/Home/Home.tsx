@@ -11,17 +11,33 @@ interface Lexeme {
   column: number;
 }
 
-export default function Home() {
-  const [lexemes, setLexemes] = useState<Lexeme[]>([]);
+interface LexerResponse {
+  status: string;
+  tokens?: Lexeme[];
+  error?: {
+    type: string;
+    message: string;
+    details: {
+      line: number;
+      column: number;
+      invalid_token: string;
+    };
+  };
+}
 
-  const getLexemes = (input: Lexeme[]) => {
-    setLexemes(input);
+export default function Home() {
+  const [lexerResponse, setLexerResponse] = useState<LexerResponse | null>(
+    null
+  );
+
+  const handleLexerResponse = (response: LexerResponse) => {
+    setLexerResponse(response);
   };
 
   return (
     <main id="home-page">
-      <Terminal getLexemes={getLexemes} />
-      <LexemeTable lexemes={lexemes} />
+      <Terminal getLexerResponse={handleLexerResponse} />
+      <LexemeTable lexerResponse={lexerResponse} />
     </main>
   );
 }

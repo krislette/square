@@ -8,10 +8,10 @@ import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/theme-dracula";
 import { MdOutlineUploadFile } from "react-icons/md";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface TerminalProps {
-  getLexemes: (input: Lexeme[]) => void;
+  getLexerResponse: (response: LexerResponse) => void;
 }
 
 interface Lexeme {
@@ -21,15 +21,26 @@ interface Lexeme {
   column: number;
 }
 
-export default function Terminal({ getLexemes }: TerminalProps) {
-  const [theme, setTheme] = useState<string>("clouds_midnight");
-  const [input, setInput] = useState<string>(`# type your code here!
-my_var: string = "hello world!"`);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+interface LexerResponse {
+  status: string;
+  tokens?: Lexeme[];
+  error?: {
+    type: string;
+    message: string;
+    details: {
+      line: number;
+      column: number;
+      invalid_token: string;
+    };
+  };
+}
 
-  useEffect(() => {
-    handleGenerate();
-  }, [])
+export default function Terminal({ getLexerResponse }: TerminalProps) {
+  const [theme, setTheme] = useState<string>("clouds_midnight");
+  const [input, setInput] = useState<string>(`# Type your code here!
+my_var: str = "hello world!".
+print(my_var).`);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     setTheme(e.target.value);
@@ -53,13 +64,9 @@ my_var: string = "hello world!"`);
         }),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const data = await response.json();
       console.log("Received response: ", data);
-      getLexemes(data.tokens);
+      getLexerResponse(data);
     } catch (error) {
       console.error("Error:", error);
     } finally {

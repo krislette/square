@@ -7,6 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from backend.lexer.lexer import Lexer
 from backend.lexer.tokens import Token
+from backend.lexer.errors import LexicalError, TokenizationError
 
 
 def read_source_file(file_path: str) -> str:
@@ -54,11 +55,17 @@ def get_tokens_as_json(tokens: List[Token], output_path: str) -> None:
 
 
 def tokenize_string(source_code: str) -> List[Dict]:
-    # Tokenize the source code
-    lexer: Lexer = Lexer(source_code)
-    tokens: List[Token] = lexer.tokenize()
-    
-    return convert_tokens_to_dict(tokens)
+    try:
+        # Tokenize the source code
+        lexer: Lexer = Lexer(source_code)
+        tokens: List[Token] = lexer.tokenize()
+        return convert_tokens_to_dict(tokens)
+    except LexicalError as e:
+        # Convert LexicalError to TokenizationError
+        raise TokenizationError(e.character, e.line, e.column)
+    except Exception as e:
+        # Convert other exceptions to a more general error (pass for now)
+        pass
 
 
 def convert_tokens_to_dict(tokens: List[Token]) -> List[Dict]:
