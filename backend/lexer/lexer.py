@@ -3,7 +3,7 @@ from backend.lexer.errors import LexicalError
 from backend.core.constants import KEYWORDS, OPERATORS, DELIMITERS
 from backend.core.states import State
 from typing import List, Optional
-from .helpers import isAlpha, isNum, isSpace
+from backend.lexer.helpers import isAlpha, isNum, isSpace
 
 
 class Lexer:
