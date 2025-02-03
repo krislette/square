@@ -11,7 +11,7 @@ import { MdOutlineUploadFile } from "react-icons/md";
 import { useState, useEffect } from "react";
 
 interface TerminalProps {
-  getLexemes: (input: Lexeme[]) => void;
+  getLexerResponse: (response: LexerResponse) => void;
 }
 
 interface Lexeme {
@@ -21,7 +21,21 @@ interface Lexeme {
   column: number;
 }
 
-export default function Terminal({ getLexemes }: TerminalProps) {
+interface LexerResponse {
+  status: string;
+  tokens?: Lexeme[];
+  error?: {
+    type: string;
+    message: string;
+    details: {
+      line: number;
+      column: number;
+      invalid_token: string;
+    };
+  };
+}
+
+export default function Terminal({ getLexerResponse }: TerminalProps) {
   const [theme, setTheme] = useState<string>("clouds_midnight");
   const [input, setInput] = useState<string>(`# type your code here!
 my_var: string = "hello world!"`);
@@ -29,7 +43,7 @@ my_var: string = "hello world!"`);
 
   useEffect(() => {
     handleGenerate();
-  }, [])
+  }, []);
 
   const handleChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     setTheme(e.target.value);
@@ -43,7 +57,7 @@ my_var: string = "hello world!"`);
     try {
       setIsLoading(true);
 
-      const response = await fetch(import.meta.env.VITE_API_URL, {
+      const response = await fetch("http://127.0.0.1:8000/tokenize", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,13 +67,9 @@ my_var: string = "hello world!"`);
         }),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const data = await response.json();
       console.log("Received response: ", data);
-      getLexemes(data.tokens);
+      getLexerResponse(data);
     } catch (error) {
       console.error("Error:", error);
     } finally {
