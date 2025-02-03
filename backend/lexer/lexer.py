@@ -172,7 +172,7 @@ class Lexer:
             return
 
         # Unrecognized operator error
-        raise ValueError(f"Unrecognized operator: {current}")
+        raise LexicalError(current, self.line, self.column)
 
     def _tokenize_number(self) -> None:
         """Tokenize numbers, including integers and floating-point numbers.
