@@ -38,7 +38,7 @@ interface LexerResponse {
 export default function Terminal({ getLexerResponse }: TerminalProps) {
   const [theme, setTheme] = useState<string>("clouds_midnight");
   const [input, setInput] = useState<string>(`# Type your code here!
-my_var: str = "hello world!"
+my_var: str = "hello world!".
 print(my_var).`);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
