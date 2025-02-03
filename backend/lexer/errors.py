@@ -40,4 +40,4 @@ class TokenizationError(Exception):
         super().__init__(self.message)
     
     def _generate_error_message(self) -> str:
-        return f"Invalid token '{self.token}' at line {self.line}, column {self.column}"
+        return f"Error: {self.token} at line {self.line}, column {self.column}"

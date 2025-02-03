@@ -121,7 +121,7 @@ class Lexer:
                 # State: Error
                 # If no valid transition is found, raise a lexical error
                 else:
-                    raise LexicalError(current, self.line, self.column)
+                    raise LexicalError(f"Invalid token '{current}'", self.line, self.column)
 
             # Reset to start state after processing
             self.current_state = State.START
@@ -173,7 +173,7 @@ class Lexer:
             return
 
         # Unrecognized operator error
-        raise LexicalError(current, self.line, self.column)
+        raise LexicalError(f"Invalid token '{current}'", self.line, self.column)
 
     def _tokenize_number(self) -> None:
         """Tokenize numbers, including integers and floating-point numbers.
