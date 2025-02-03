@@ -25,7 +25,7 @@
 <!-- PROJECT DEMO -->
 ## Demo
 <div align="center">
-  <img src="" alt="Demo" width="20%">
+  <img src="https://github.com/user-attachments/assets/b2b857a6-78af-4658-b205-859458463cc3" alt="Demo" width="80%">
 </div>
 
 <!-- ABOUT THE PROJECT -->
@@ -47,15 +47,6 @@ The programming language draws inspiration from C for its robust static typing a
   </li>
   <li>
     <a href="#application-snapshots">Application Snapshots</a>
-  </li>
-  <li>
-    <a href="#installation">Installation</a>
-    <ul>
-      <li><a href="#prerequisites">Prerequisites</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#run">Run</a>
   </li>
   <li>
     <a href="#contributors">Contributors</a>
@@ -158,8 +149,9 @@ mod user [
 ![image](https://github.com/user-attachments/assets/4cc6fe7f-43a4-4ac5-a530-7e8f5639b949)
 
 ### Terminal
-![image](https://github.com/user-attachments/assets/767f0c46-5ed8-4c86-b2d4-925cde5895bd)
-![image](https://github.com/user-attachments/assets/c014e4df-ec4b-4593-a09a-bb3a5a7480d7)
+![image](https://github.com/user-attachments/assets/2a8235f4-eaa4-4b8c-8224-01339199383f)
+![image](https://github.com/user-attachments/assets/32efed98-d6fa-467f-ba66-8bdebaddcf11)
+
 
 ### Terminal Themes
 #### Dark Mode
@@ -176,12 +168,9 @@ mod user [
   <img src="https://github.com/user-attachments/assets/0de188fe-f9eb-41ba-8c4f-022b079fc747" style="width: 32%; height: auto;"/>
 </div>
 
-<!-- INSTALLATION -->
-## Installation
-### Prerequisites
+#### Error Handling
+![image](https://github.com/user-attachments/assets/6e69c608-13c1-435f-b3d3-ea440a11d377)
 
-<!-- HOW TO RUN THE PROGRAM -->
-##  Run
 
 <!-- CONTRIBUTOR'S TABLE -->
 ## Contributors
