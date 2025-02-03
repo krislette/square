@@ -8,7 +8,7 @@ import "ace-builds/src-noconflict/theme-solarized_light";
 import "ace-builds/src-noconflict/theme-solarized_dark";
 import "ace-builds/src-noconflict/theme-dracula";
 import { MdOutlineUploadFile } from "react-icons/md";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface TerminalProps {
   getLexerResponse: (response: LexerResponse) => void;
@@ -41,10 +41,6 @@ export default function Terminal({ getLexerResponse }: TerminalProps) {
 my_var: str = "hello world!".
 print(my_var).`);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  useEffect(() => {
-    handleGenerate();
-  }, []);
 
   const handleChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     setTheme(e.target.value);
